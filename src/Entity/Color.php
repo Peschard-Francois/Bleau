@@ -19,6 +19,9 @@ class Color
     #[ORM\Column(length: 255)]
     private ?string $name_en = null;
 
+    #[ORM\ManyToOne(inversedBy: 'colors')]
+    private ?circuit $circuits = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Color
     public function setNameEn(string $name_en): self
     {
         $this->name_en = $name_en;
+
+        return $this;
+    }
+
+    public function getCircuits(): ?circuit
+    {
+        return $this->circuits;
+    }
+
+    public function setCircuits(?circuit $circuits): self
+    {
+        $this->circuits = $circuits;
 
         return $this;
     }
