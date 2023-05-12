@@ -32,6 +32,12 @@ class Image
     #[ORM\Column(type: Types::TEXT)]
     private ?string $name_route = null;
 
+    #[ORM\ManyToOne(inversedBy: 'images')]
+    private ?User $users = null;
+
+    #[ORM\ManyToOne(inversedBy: 'images')]
+    private ?Route $routes = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +111,30 @@ class Image
     public function setNameRoute(string $name_route): self
     {
         $this->name_route = $name_route;
+
+        return $this;
+    }
+
+    public function getUsers(): ?User
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?User $users): self
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    public function getRoutes(): ?Route
+    {
+        return $this->routes;
+    }
+
+    public function setRoutes(?Route $routes): self
+    {
+        $this->routes = $routes;
 
         return $this;
     }
