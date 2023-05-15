@@ -36,16 +36,16 @@ class Route
     #[ORM\Column]
     private ?int $nb_repetition = null;
 
-    #[ORM\ManyToMany(targetEntity: type::class, inversedBy: 'routes')]
+    #[ORM\ManyToMany(targetEntity: Type::class, inversedBy: 'routes')]
     private Collection $types;
 
-    #[ORM\ManyToMany(targetEntity: bleauVideo::class, inversedBy: 'routes')]
+    #[ORM\ManyToMany(targetEntity: BleauVideo::class, inversedBy: 'routes')]
     private Collection $bleau_videos;
 
-    #[ORM\ManyToMany(targetEntity: bleauImage::class, inversedBy: 'routes')]
+    #[ORM\ManyToMany(targetEntity: BleauImage::class, inversedBy: 'routes')]
     private Collection $bleau_images;
 
-    #[ORM\ManyToMany(targetEntity: bleauDescription::class, inversedBy: 'routes')]
+    #[ORM\ManyToMany(targetEntity: BleauDescription::class, inversedBy: 'routes')]
     private Collection $bleau_descriptions;
 
     #[ORM\ManyToOne(inversedBy: 'routes')]
@@ -54,7 +54,7 @@ class Route
     #[ORM\ManyToOne(inversedBy: 'routes')]
     private ?setter $setters = null;
 
-    #[ORM\ManyToMany(targetEntity: circuit::class, inversedBy: 'routes')]
+    #[ORM\ManyToMany(targetEntity: Circuit::class, inversedBy: 'routes')]
     private Collection $circuits;
 
     #[ORM\OneToMany(mappedBy: 'routes', targetEntity: Image::class)]
